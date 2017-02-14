@@ -7,5 +7,7 @@ target 'SocialShare' do
 
   # Pods for SocialShare
   pod 'Firebase/Core'
-
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+  pod 'Firebase/Database'
 end
