@@ -14,6 +14,7 @@ let FIR_CHILD_USERS = "users"
 let FIR_CHILD_IMAGES = "images"
 let FIR_CHILD_VIDEOS = "videos"
 let FIR_CHILD_PROFILE = "profile"
+let FIR_CHILD_USERNAMES = "usernames"
 
 class DatabaseService {
     private static let _instance = DatabaseService()
@@ -42,6 +43,22 @@ class DatabaseService {
         return rootStorageRef.child(FIR_CHILD_VIDEOS)
     }
     
+    func isDuplicateUsername(for name: String) -> Bool {
+        
+        var exists = true
+        
+        rootRef.child(FIR_CHILD_USERNAMES).observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.hasChild(name) {
+                print("MOR: Duplicate username detected")
+            } else {
+                print("MOR: Username is unique")
+                exists = false
+            }
+        }
+        
+        return exists
+    }
+    
     func saveUser(uid: String, data: Dictionary<String, AnyObject>) {
         
         guard let firstName = data["firstName"] as? String, let lastName = data["lastName"] as? String, let username = data["username"] as? String else {
@@ -50,6 +67,7 @@ class DatabaseService {
         }
             let profile: Dictionary<String, AnyObject> = ["firstName": firstName as AnyObject, "lastName": lastName as AnyObject, "username": username as AnyObject]
             rootRef.child(FIR_CHILD_USERS).child(uid).child(FIR_CHILD_PROFILE).setValue(profile)
+            rootRef.child(FIR_CHILD_USERNAMES).setValue(username)
             print("MOR: User profile info has been saved successfully")
     }
 }
