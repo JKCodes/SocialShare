@@ -34,7 +34,7 @@ class LoginVC: UIViewController {
         
         if let email = emailField.text, let password = passwordField.text, (email.characters.count > 0 && password.characters.count > 0) {
             
-            AuthenticationService.instance.login(email: email, password: password, onComplete: { (errorMsg, data) in
+            AuthenticationService.instance.signin(email: email, password: password, onComplete: { (errorMsg, data) in
                 guard errorMsg == nil else {
                     self.displayAlert(title: "Error Authenticating", message: errorMsg!)
                     return

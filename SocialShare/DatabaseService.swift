@@ -9,6 +9,7 @@
 import Foundation
 import FirebaseDatabase
 import FirebaseStorage
+import FirebaseAuth
 
 let FIR_CHILD_USERS = "users"
 let FIR_CHILD_IMAGES = "images"
@@ -43,32 +44,30 @@ class DatabaseService {
         return rootStorageRef.child(FIR_CHILD_VIDEOS)
     }
     
-    func isDuplicateUsername(for name: String) -> Bool {
+    func isDuplicateUsername(for name: String, onCompletion: @escaping Completion) {
         
-        var exists = true
-        
-        rootRef.child(FIR_CHILD_USERNAMES).observeSingleEvent(of: .value) { (snapshot) in
+        rootRef.child(FIR_CHILD_USERNAMES).observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(name) {
                 print("MOR: Duplicate username detected")
+                onCompletion("\(name) is not available. Please choose a different username", nil)
             } else {
                 print("MOR: Username is unique")
-                exists = false
+                onCompletion(nil, nil)
             }
-        }
-        
-        return exists
+        })
     }
     
-    func saveUser(uid: String, data: Dictionary<String, AnyObject>) {
+    func saveUser(with data: Dictionary<String, AnyObject>) {
         
-        guard let firstName = data["firstName"] as? String, let lastName = data["lastName"] as? String, let username = data["username"] as? String else {
-            print("Error loading profile data")
+        guard let email = data["email"] as? String, let username = data["username"] as? String else {
+            print("MOR: Error loading profile data")
             return
         }
-            let profile: Dictionary<String, AnyObject> = ["firstName": firstName as AnyObject, "lastName": lastName as AnyObject, "username": username as AnyObject]
-            rootRef.child(FIR_CHILD_USERS).child(uid).child(FIR_CHILD_PROFILE).setValue(profile)
-            rootRef.child(FIR_CHILD_USERNAMES).setValue(username)
-            print("MOR: User profile info has been saved successfully")
+        
+        let profile: Dictionary<String, AnyObject> = ["email": email as AnyObject, "username": username as AnyObject]
+        rootRef.child(FIR_CHILD_USERS).child((FIRAuth.auth()?.currentUser?.uid)!).child(FIR_CHILD_PROFILE).setValue(profile)
+        rootRef.child(FIR_CHILD_USERNAMES).child(username).setValue(UserStates.active.rawValue)
+        print("MOR: User profile info has been saved successfully")
     }
 }
 

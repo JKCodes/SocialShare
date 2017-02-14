@@ -20,6 +20,8 @@
 		D80D1ABE1E5335E6007235BE /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1ABD1E5335E6007235BE /* SignUpVC.swift */; };
 		D80D1AC01E533B45007235BE /* RoundButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1ABF1E533B45007235BE /* RoundButton.swift */; };
 		D80D1AC21E533B54007235BE /* RoundTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1AC11E533B54007235BE /* RoundTextField.swift */; };
+		D80D1AC51E5362A0007235BE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1AC41E53629F007235BE /* Constants.swift */; };
+		D80D1AC71E5376FA007235BE /* UserStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1AC61E5376FA007235BE /* UserStates.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +41,8 @@
 		D80D1ABD1E5335E6007235BE /* SignUpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
 		D80D1ABF1E533B45007235BE /* RoundButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButton.swift; sourceTree = "<group>"; };
 		D80D1AC11E533B54007235BE /* RoundTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundTextField.swift; sourceTree = "<group>"; };
+		D80D1AC41E53629F007235BE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D80D1AC61E5376FA007235BE /* UserStates.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserStates.swift; sourceTree = "<group>"; };
 		FDA63719833E882516EDF739 /* Pods-SocialShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialShare/Pods-SocialShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -83,6 +87,7 @@
 		D80D1A9E1E5214E8007235BE /* SocialShare */ = {
 			isa = PBXGroup;
 			children = (
+				D80D1AC31E53628C007235BE /* Utilities */,
 				D80D1AB61E5217BE007235BE /* Services */,
 				D80D1AB31E5217A2007235BE /* Model */,
 				D80D1AB41E5217AA007235BE /* View */,
@@ -130,6 +135,15 @@
 				D80D1AB91E521F30007235BE /* DatabaseService.swift */,
 			);
 			name = Services;
+			sourceTree = "<group>";
+		};
+		D80D1AC31E53628C007235BE /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				D80D1AC41E53629F007235BE /* Constants.swift */,
+				D80D1AC61E5376FA007235BE /* UserStates.swift */,
+			);
+			name = Utilities;
 			sourceTree = "<group>";
 		};
 		DD310F01C0478291F3BF970D /* Pods */ = {
@@ -272,8 +286,10 @@
 				D80D1AC01E533B45007235BE /* RoundButton.swift in Sources */,
 				D80D1ABA1E521F30007235BE /* DatabaseService.swift in Sources */,
 				D80D1ABC1E524F4F007235BE /* User.swift in Sources */,
+				D80D1AC71E5376FA007235BE /* UserStates.swift in Sources */,
 				D80D1ABE1E5335E6007235BE /* SignUpVC.swift in Sources */,
 				D80D1AA01E5214E8007235BE /* AppDelegate.swift in Sources */,
+				D80D1AC51E5362A0007235BE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

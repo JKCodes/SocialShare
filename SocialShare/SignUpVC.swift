@@ -20,6 +20,8 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         emailField.delegate = self
+        passwordField.delegate = self
+        usernameField.delegate = self
     }
     
     
@@ -58,14 +60,14 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
             }
             
         } catch {
-            print("MOR: Email address format invalid")
+            print("MOR: Error parsing email data")
         }
         
         return valid
     }
     
     @IBAction func policyBtnPressed(_ sender: Any) {
-        displayAlert(title: "Terms of Use and Privacy Policy Alert", message: "This is a demo app.  Terms and policies actually do not exist.  Thank you for checking out the terms of use and privacy policy.")
+        displayAlert(title: "Terms of Use and Privacy Policy Alert", message: "This is a demo app.  Terms and policies actually do not exist.  Thank you for checking out the terms of use and the privacy policy.")
     }
     
     
@@ -87,20 +89,27 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 return
             }
             
-            print(DatabaseService.instance.isDuplicateUsername(for: username))
-            
-            print("HELLO")
-            
-            /*
-            AuthenticationService.instance.login(email: email, password: password, onComplete: { (errorMsg, data) in
-                guard errorMsg == nil else {
-                    self.displayAlert(title: "Error Authenticating", message: errorMsg!)
+            DatabaseService.instance.isDuplicateUsername(for: username) { (errorMsg, data) in
+                if errorMsg != nil {
+                    self.displayAlert(title: "Username not available", message: errorMsg!)
                     return
+                } else {
+                    
+                    // By this point, all three fields have been validated
+                    AuthenticationService.instance.createUser(email: email, password: password) { (errorMsg, data) in
+                        
+                        let data: [String: AnyObject] = ["email": email as AnyObject, "username": username as AnyObject]
+                        
+                        if errorMsg != nil {
+                            self.displayAlert(title: "Error Creating User", message: errorMsg!)
+                        } else {
+                            DatabaseService.instance.saveUser(with: data)
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                        
+                    }
                 }
-                
-            })
-             */
-            
+            }
         } else {
             displayAlert(title: "All fields are required", message: "You must enter an email, a password, and a username")
         }

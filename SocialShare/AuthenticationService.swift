@@ -9,9 +9,6 @@
 import Foundation
 import FirebaseAuth
 
-// typealiasing to make code below more readable
-typealias Completion = (_ errorMsg: String?, _ data: AnyObject?) -> Void
-
 class AuthenticationService {
     
     private static let _instance = AuthenticationService()
@@ -20,15 +17,31 @@ class AuthenticationService {
         return _instance
     }
     
-   /*
-    func createUser(uid: String, data: AnyObject?) {
-        
-        DatabaseService.instance.saveUser(uid: uid, data: data)
+    func createUser(email: String, password: String, onComplete: Completion?) {
+    
+        FIRAuth.auth()?.createUser(withEmail: email, password: password, completion: { (user, error) in
+            if error != nil {
+                self.processFirebaseErrors(error: error! as NSError, onComplete: onComplete)
+            } else {
+                if user?.uid != nil {
+                    
+                    //Attempt to sign in user right away while creating an account
+                    FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
+                        if error != nil {
+                            // Sign in after account creationg resulted in a failure
+                            self.processFirebaseErrors(error: error! as NSError, onComplete: onComplete)
+                        } else {
+                            // User sign in was successful - send back the user data
+                            onComplete?(nil, user)
+                        }
+                    })
+                }
+            }
+        })
     }
  
- */
     
-    func login(email: String, password: String, onComplete: Completion?) {
+    func signin(email: String, password: String, onComplete: Completion?) {
         FIRAuth.auth()?.signIn(withEmail: email, password: password, completion: { (user, error) in
             if error != nil {
                 // There is an error
@@ -37,17 +50,17 @@ class AuthenticationService {
             } else {
                 // No errors detected - aka signed in successfully
                 onComplete?(nil, user)
-                print("MOR: Log in attempt was successful\n")
+                print("MOR: Sign In attempt was successful\n")
             }
         })
     }
     
-    func logout() {
+    func signout() {
         do {
             try FIRAuth.auth()?.signOut()
-            print("MOR: User has been logged out successfully")
+            print("MOR: User has been Signed Out successfully")
         } catch {
-            print("MOR: An Error has occurred while attempting to sign out")
+            print("MOR: An error has occurred while attempting to sign out")
         }
     }
     
@@ -55,7 +68,7 @@ class AuthenticationService {
         if let errorCode = FIRAuthErrorCode(rawValue: error._code) {
             switch errorCode {
             case .errorCodeUserNotFound:
-                onComplete?("No account exists with the email. Create an account?", nil)
+                onComplete?("No account exists with the provided email.", nil)
             case .errorCodeInvalidEmail, .errorCodeWrongPassword:
                 onComplete?("Invalid Email Address/Password Combination", nil)
             case .errorCodeWeakPassword:
