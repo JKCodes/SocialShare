@@ -67,7 +67,7 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func policyBtnPressed(_ sender: Any) {
-        displayAlert(title: "Terms of Use and Privacy Policy Alert", message: "This is a demo app.  Terms and policies actually do not exist.  Thank you for checking out the terms of use and the privacy policy.")
+        displayAlert(title: "Terms of Use and Privacy Policy Alert", message: "This is a demo app.  Terms and policies do not exist.  Nonetheless, thank you for checking out the terms of use and the privacy policy.")
     }
     
     

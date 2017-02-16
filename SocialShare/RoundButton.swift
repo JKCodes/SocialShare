@@ -9,7 +9,8 @@
 import UIKit
 
 @IBDesignable
-class RoundTextField: UITextField {
+class RoundedButton: UIButton {
+    
     
     @IBInspectable var cornerRadius: CGFloat = 0 {
         didSet {
