@@ -8,14 +8,12 @@
 
 import Foundation
 import FirebaseDatabase
-import FirebaseStorage
 import FirebaseAuth
 
 let FIR_CHILD_USERS = "users"
-let FIR_CHILD_IMAGES = "images"
-let FIR_CHILD_VIDEOS = "videos"
 let FIR_CHILD_PROFILE = "profile"
 let FIR_CHILD_USERNAMES = "usernames"
+let FIR_CHILD_POSTS = "posts"
 
 class DatabaseService {
     private static let _instance = DatabaseService()
@@ -32,16 +30,8 @@ class DatabaseService {
         return rootRef.child(FIR_CHILD_USERS)
     }
     
-    var rootStorageRef: FIRStorageReference {
-        return FIRStorage.storage().reference()
-    }
-    
-    var imagesStorageRef: FIRStorageReference {
-        return rootStorageRef.child(FIR_CHILD_IMAGES)
-    }
-    
-    var videosStorageRef: FIRStorageReference {
-        return rootStorageRef.child(FIR_CHILD_VIDEOS)
+    var postsRef: FIRDatabaseReference {
+        return rootRef.child(FIR_CHILD_POSTS)
     }
     
     func isDuplicateUsername(for name: String, onCompletion: @escaping Completion) {

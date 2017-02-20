@@ -26,6 +26,10 @@
 		D80D1ACC1E553D48007235BE /* Infinite_Stroke.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80D1ACA1E5537BC007235BE /* Infinite_Stroke.otf */; };
 		D8982AD61E5B342400863EFF /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982AD51E5B342400863EFF /* PostVC.swift */; };
 		D8982AD81E5B36CA00863EFF /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982AD71E5B36CA00863EFF /* PostCell.swift */; };
+		D8982ADA1E5B37BD00863EFF /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982AD91E5B37BD00863EFF /* Post.swift */; };
+		D8982ADC1E5B3D5C00863EFF /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982ADB1E5B3D5C00863EFF /* StorageService.swift */; };
+		D8982ADF1E5B484400863EFF /* StorageTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982ADE1E5B484400863EFF /* StorageTypes.swift */; };
+		D8982AE11E5B572B00863EFF /* SimpleDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982AE01E5B572B00863EFF /* SimpleDate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +56,10 @@
 		D80D1ACD1E553DCA007235BE /* Infinite_Stroke.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Infinite_Stroke.otf; path = SocialShare/Infinite_Stroke.otf; sourceTree = "<group>"; };
 		D8982AD51E5B342400863EFF /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		D8982AD71E5B36CA00863EFF /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		D8982AD91E5B37BD00863EFF /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		D8982ADB1E5B3D5C00863EFF /* StorageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		D8982ADE1E5B484400863EFF /* StorageTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageTypes.swift; sourceTree = "<group>"; };
+		D8982AE01E5B572B00863EFF /* SimpleDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleDate.swift; sourceTree = "<group>"; };
 		FDA63719833E882516EDF739 /* Pods-SocialShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialShare/Pods-SocialShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				D80D1ABB1E524F4F007235BE /* User.swift */,
+				D8982AD91E5B37BD00863EFF /* Post.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -147,6 +156,7 @@
 			children = (
 				D80D1AB71E5217E1007235BE /* AuthenticationService.swift */,
 				D80D1AB91E521F30007235BE /* DatabaseService.swift */,
+				D8982ADB1E5B3D5C00863EFF /* StorageService.swift */,
 			);
 			name = Services;
 			sourceTree = "<group>";
@@ -156,6 +166,8 @@
 			children = (
 				D80D1AC41E53629F007235BE /* Constants.swift */,
 				D80D1AC61E5376FA007235BE /* UserStates.swift */,
+				D8982ADE1E5B484400863EFF /* StorageTypes.swift */,
+				D8982AE01E5B572B00863EFF /* SimpleDate.swift */,
 			);
 			name = Utilities;
 			sourceTree = "<group>";
@@ -308,10 +320,14 @@
 				D8982AD81E5B36CA00863EFF /* PostCell.swift in Sources */,
 				D80D1AA21E5214E8007235BE /* LoginVC.swift in Sources */,
 				D80D1AC01E533B45007235BE /* RoundButton.swift in Sources */,
+				D8982ADA1E5B37BD00863EFF /* Post.swift in Sources */,
 				D80D1ABA1E521F30007235BE /* DatabaseService.swift in Sources */,
+				D8982ADF1E5B484400863EFF /* StorageTypes.swift in Sources */,
 				D80D1ABC1E524F4F007235BE /* User.swift in Sources */,
+				D8982AE11E5B572B00863EFF /* SimpleDate.swift in Sources */,
 				D8982AD61E5B342400863EFF /* PostVC.swift in Sources */,
 				D80D1AC71E5376FA007235BE /* UserStates.swift in Sources */,
+				D8982ADC1E5B3D5C00863EFF /* StorageService.swift in Sources */,
 				D80D1ABE1E5335E6007235BE /* SignUpVC.swift in Sources */,
 				D80D1AA01E5214E8007235BE /* AppDelegate.swift in Sources */,
 				D80D1AC91E551C78007235BE /* LeftViewTextField.swift in Sources */,

@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Firebase
 
 class PostCell: UITableViewCell {
 
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

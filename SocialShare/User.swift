@@ -13,6 +13,7 @@ struct User {
     private var _lastName: String
     private var _userName: String
     private var _uid: String
+    private var _profileImgUrl: String
     
     var uid: String  {
         return _uid
@@ -30,10 +31,11 @@ struct User {
         return _lastName
     }
     
-    init(uid: String, username: String, firstName: String, lastName: String) {
+    init(uid: String, username: String, firstName: String, lastName: String, profileImgUrl: String) {
         _firstName = firstName
         _lastName = lastName
         _userName = username
         _uid = uid
+        _profileImgUrl = profileImgUrl
     }
 }
