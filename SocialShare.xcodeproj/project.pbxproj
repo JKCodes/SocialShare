@@ -24,6 +24,8 @@
 		D80D1AC71E5376FA007235BE /* UserStates.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1AC61E5376FA007235BE /* UserStates.swift */; };
 		D80D1AC91E551C78007235BE /* LeftViewTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D1AC81E551C78007235BE /* LeftViewTextField.swift */; };
 		D80D1ACC1E553D48007235BE /* Infinite_Stroke.otf in Resources */ = {isa = PBXBuildFile; fileRef = D80D1ACA1E5537BC007235BE /* Infinite_Stroke.otf */; };
+		D8982AD61E5B342400863EFF /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982AD51E5B342400863EFF /* PostVC.swift */; };
+		D8982AD81E5B36CA00863EFF /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8982AD71E5B36CA00863EFF /* PostCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +50,8 @@
 		D80D1AC81E551C78007235BE /* LeftViewTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LeftViewTextField.swift; sourceTree = "<group>"; };
 		D80D1ACA1E5537BC007235BE /* Infinite_Stroke.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Infinite_Stroke.otf; sourceTree = "<group>"; };
 		D80D1ACD1E553DCA007235BE /* Infinite_Stroke.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Infinite_Stroke.otf; path = SocialShare/Infinite_Stroke.otf; sourceTree = "<group>"; };
+		D8982AD51E5B342400863EFF /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		D8982AD71E5B36CA00863EFF /* PostCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		FDA63719833E882516EDF739 /* Pods-SocialShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialShare/Pods-SocialShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -123,6 +127,7 @@
 				D80D1ABF1E533B45007235BE /* RoundButton.swift */,
 				D80D1AC11E533B54007235BE /* RoundTextField.swift */,
 				D80D1AC81E551C78007235BE /* LeftViewTextField.swift */,
+				D8982AD71E5B36CA00863EFF /* PostCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -132,6 +137,7 @@
 			children = (
 				D80D1AA11E5214E8007235BE /* LoginVC.swift */,
 				D80D1ABD1E5335E6007235BE /* SignUpVC.swift */,
+				D8982AD51E5B342400863EFF /* PostVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -299,10 +305,12 @@
 			files = (
 				D80D1AC21E533B54007235BE /* RoundTextField.swift in Sources */,
 				D80D1AB81E5217E1007235BE /* AuthenticationService.swift in Sources */,
+				D8982AD81E5B36CA00863EFF /* PostCell.swift in Sources */,
 				D80D1AA21E5214E8007235BE /* LoginVC.swift in Sources */,
 				D80D1AC01E533B45007235BE /* RoundButton.swift in Sources */,
 				D80D1ABA1E521F30007235BE /* DatabaseService.swift in Sources */,
 				D80D1ABC1E524F4F007235BE /* User.swift in Sources */,
+				D8982AD61E5B342400863EFF /* PostVC.swift in Sources */,
 				D80D1AC71E5376FA007235BE /* UserStates.swift in Sources */,
 				D80D1ABE1E5335E6007235BE /* SignUpVC.swift in Sources */,
 				D80D1AA01E5214E8007235BE /* AppDelegate.swift in Sources */,
