@@ -84,6 +84,10 @@ class SignUpVC: UIViewController, UITextFieldDelegate {
                 return
             }
             
+            if username.characters.count > 24 {
+                displayAlert(title: "Username too long", message: "Username must be less than 25 characters")
+            }
+            
             if !isValidEmail(email) {
                 displayAlert(title: "Invalid Email Address", message: "Please enter a valid email address.")
                 return
